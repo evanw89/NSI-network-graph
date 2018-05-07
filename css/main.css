@@ -1,0 +1,113 @@
+body {
+  overflow-x:hidden;
+}
+
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
+
+.node circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.shared {
+  stroke: #000;
+  stroke-width: 2px;
+  fill: none;
+}
+div {
+  position: absolute;
+  top: 20vh;
+  left: 20%;
+  height: 60vh;
+  width: 60%;
+  /*min-width: 80vh;*/
+  /*background-color: tomato;*/
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.5s ease;
+}
+circle {
+  transition: stroke 0.3s ease;
+  transition: fill 0.3s ease;
+}
+circle:hover {
+  cursor: pointer;
+  stroke: tomato;
+  fill: #FFF;
+}
+.open {
+  transform: scale(1);
+  opacity: 1;
+  top: 20vh;
+  left: 20%;
+}
+
+button.exit {
+  border-radius: 50%;
+  font-size: 1.3rem;
+  color: tomato;
+  height: 45px;
+  width: 45px;
+  border: 3px solid tomato;
+  background: none;
+  opacity: 0.8;
+  /*box-shadow: inset 0.01em 0 0 0 tomato; */
+  transition: 0.5s;
+  position: absolute;
+  top: -5%;
+  right: -5%;
+}
+button.exit:hover {
+  cursor: pointer;
+  opacity: 1!important;
+  color: #FFF;
+  background: initial;
+  background-color: tomato;
+}
+/*#sidebar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: tomato;
+  width: 0;
+  height: 100vh;
+  transition: 0.5s ease;
+}*/
+#slide1, #slide2, #slide3, #slide4, #slide5, #slide6, #slide7, #slide8, #slide9, #slide10 {
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+#slide1 {
+  background-image: url("../images/1.PNG");
+}
+#slide2 {
+  background-image: url("../images/2.PNG");
+}
+#slide3 {
+  background-image: url("../images/3.PNG");
+}
+#slide4 {
+  background-image: url("../images/4.PNG");
+}
+#slide5 {
+  background-image: url("../images/5.PNG");
+}
+#slide6 {
+  background-image: url("../images/6.PNG");
+}
+#slide7 {
+  background-image: url("../images/7.PNG");
+}
+#slide8 {
+  background-image: url("../images/8.PNG");
+}
+#slide9 {
+  background-image: url("../images/9.PNG");
+}
+#slide10 {
+  background-image: url("../images/10.PNG");
+}
