@@ -10,39 +10,47 @@
 </head>
 <body>
 
-<svg id="networkGraph" preserveAspectRatio="xMidYMid meet" viewbox="-285 -150 600 600"></svg>
+<img id="bg" src="images/bg.png" alt="magnifying glass background">
+
+<svg id="networkGraph" preserveAspectRatio="xMidYMid meet" viewbox="-480 -380 1000 1000">
+	<clipPath id="myClip">
+      <ellipse cx="1" cy="21" rx="196" ry="175" style="transform: rotate(-6deg);"/>
+    </clipPath>
+</svg>
+<div class="absolute tooltip">Tooltip</div>
 <!-- <section id="sidebar"> -->
-	<div id="slide1">
-	  <button class="exit" onclick="closeSlide(1)">X</button>
-	</div>
-	<div id="slide2">
-	  <button class="exit" onclick="closeSlide(2)">X</button>
-	</div>
-	<div id="slide3">
-	  <button class="exit" onclick="closeSlide(3)">X</button>
-	</div>
-	<div id="slide4">
-	  <button class="exit" onclick="closeSlide(4)">X</button>
-	</div>
-	<div id="slide5">
-	  <button class="exit" onclick="closeSlide(5)">X</button>
-	</div>
-	<div id="slide6">
-	  <button class="exit" onclick="closeSlide(6)">X</button>
-	</div>
-	<div id="slide7">
-	  <button class="exit" onclick="closeSlide(7)">X</button>
-	</div>
-	<div id="slide8">
-	  <button class="exit" onclick="closeSlide(8)">X</button>
-	</div>
-	<div id="slide9">
-	  <button class="exit" onclick="closeSlide(9)">X</button>
-	</div>
-	<div id="slide10">
-	  <button class="exit" onclick="closeSlide(10)">X</button>
-	</div>
+<div class="slide" id="slide1">
+  <button class="exit" onclick="closeSlide(1)">X</button>
+</div>
+<div class="slide" id="slide2">
+  <button class="exit" onclick="closeSlide(2)">X</button>
+</div>
+<div class="slide" id="slide3">
+  <button class="exit" onclick="closeSlide(3)">X</button>
+</div>
+<div class="slide" id="slide4">
+  <button class="exit" onclick="closeSlide(4)">X</button>
+</div>
+<div class="slide" id="slide5">
+  <button class="exit" onclick="closeSlide(5)">X</button>
+</div>
+<div class="slide" id="slide6">
+  <button class="exit" onclick="closeSlide(6)">X</button>
+</div>
+<div class="slide" id="slide7">
+  <button class="exit" onclick="closeSlide(7)">X</button>
+</div>
+<div class="slide" id="slide8">
+  <button class="exit" onclick="closeSlide(8)">X</button>
+</div>
+<div class="slide" id="slide9">
+  <button class="exit" onclick="closeSlide(9)">X</button>
+</div>
+<div class="slide" id="slide10">
+  <button class="exit" onclick="closeSlide(10)">X</button>
+</div>
 <!-- </section> -->
+<img id="glass" src="images/glass.png" alt="magnifying glass">
 
 <!-- SCRIPTS -->
 	<script

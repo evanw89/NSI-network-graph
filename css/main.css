@@ -17,7 +17,7 @@ body {
   stroke-width: 2px;
   fill: none;
 }
-div {
+.slide {
   position: absolute;
   top: 20vh;
   left: 20%;
@@ -110,4 +110,15 @@ button.exit:hover {
 }
 #slide10 {
   background-image: url("../images/10.PNG");
+}
+img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+d3-tip {
+    line-height: 1;
+    color: black;
 }

@@ -92,7 +92,9 @@ var data = { "nodes": [{
   }],
             
             
-  "links": [{
+  "links": [
+  
+  {
     "source": 1,
     "target": 2,
     "value": 5,
@@ -107,40 +109,85 @@ var data = { "nodes": [{
     "target": 4,
     "value": 5,
     "pass": 0.4
-  },{
-    "source": 2,
+  }, {
+    "source": 1,
+    "target": 5,
+    "value": 5,
+    "pass": 0.4
+  }, 
+  // {
+  //   "source": 1,
+  //   "target": 6,
+  //   "value": 5,
+  //   "pass": 0.4
+  // }, 
+  {
+    "source": 1,
+    "target": 7,
+    "value": 5,
+    "pass": 0.4
+  }, 
+  {
+    "source": 1,
     "target": 8,
-    "value": 10,
+    "value": 5,
+    "pass": 0.4
+  },  {
+    "source": 1,
+    "target": 9,
+    "value": 5,
+    "pass": 0.4
+  }, 
+  // {
+  //   "source": 1,
+  //   "target": 10,
+  //   "value": 5,
+  //   "pass": 0.4
+  // }, 
+  {
+    "source": 2,
+    "target": 6,
+    "value": 5,
+    "pass": 0.4
+  }, {
+    "source": 2,
+    "target": 9,
+    "value": 5,
+    "pass": 0.4
+  }, {
+    "source": 3,
+    "target": 5,
+    "value": 5,
     "pass": 0.4
   }, {
     "source": 5,
     "target": 2,
-    "value": 10,
+    "value": 5,
     "pass": 0.4
   }, {
-    "source": 6,
-    "target": 4,
-    "value": 10,
+    "source": 5,
+    "target": 9,
+    "value": 5,
     "pass": 0.4
   }, {
     "source": 7,
-    "target": 4,
-    "value": 10,
+    "target": 3,
+    "value": 5,
     "pass": 0.4
   }, {
-    "source": 8,
-    "target": 2,
-    "value": 10,
+    "source": 7,
+    "target": 5,
+    "value": 5,
     "pass": 0.4
   }, {
-    "source": 9,
-    "target": 8,
-    "value": 10,
+    "source": 7,
+    "target": 6,
+    "value": 5,
     "pass": 0.4
   }, {
-    "source": 8,
-    "target": 10,
-    "value": 10,
+    "source": 10,
+    "target": 5,
+    "value": 5,
     "pass": 0.4
   }]
 }
@@ -168,6 +215,7 @@ var link = svg.append("g")
     .data(links)
     .enter().append("line")
     .attr("stroke-width", 2)
+    .attr("clip-path", "url(#myClip)")
 
 var node = svg.append("g")
     .attr("class", "nodes")
@@ -182,6 +230,7 @@ var node = svg.append("g")
     .attr("fill", function(d) {
       return (d.otherGroups) ? "fuchsia" : color(d.pass)
     })
+    .attr("clip-path", "url(#myClip)")
     .call(d3.drag()
       .on("start", dragstarted)
       .on("drag", dragged)
@@ -200,7 +249,7 @@ simulation
 
 simulation.force("link")
     .links(links)
-    .distance(75)
+    .distance(130)
 
 function ticked() {
   link
@@ -234,18 +283,28 @@ function dragended(d) {
 function toggleSlide(slide, circle) {
   var cx = circle.cx.baseVal.value;
   var cy = circle.cy.baseVal.value;
-  // document.getElementById("slide" + slide).style.left = cx + "px";
-  // document.getElementById("slide" + slide).style.top = cy + "px";
-  // document.getElementById("sidebar").style.width = "80%";
   document.getElementById("slide" + slide).classList.add("open");
-  // document.getElementById("slide" + slide).style.transformOrigin = cx + "px " + cy + "px";
-  // document.getElementById("slide" + slide).style.transform = "scale(1)";
-  // document.getElementById("slide" + slide).style.opacity = "1";
 }
 
 function closeSlide(slide) {
-  // document.getElementById("sidebar").style.width = "";
   document.getElementById("slide" + slide).classList.remove("open");
-  // document.getElementById("slide" + slide).style.transform = "";
-  // document.getElementById("slide" + slide).style.opacity = "";
 }
+
+var HTMLabsoluteTip = d3.select("div.tooltip.absolute");
+
+d3.select("svg")
+    .selectAll("circle")
+    .on("mouseover", function () {
+      var matrix = this.getScreenCTM()
+                .translate(+this.getAttribute("cx"),
+                         +this.getAttribute("cy"));
+      HTMLabsoluteTip
+            .style("opacity", "1")
+            .style("left", 
+                   (window.pageXOffset + matrix.e) + "px")
+            .style("top",
+                   (window.pageYOffset + matrix.f + 30) + "px");
+          })
+    .on("mouseout", function () {
+        return HTMLabsoluteTip.style("opacity", "0");
+    });
